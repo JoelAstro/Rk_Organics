@@ -12,17 +12,20 @@
   --color-sage-dark: #667d6a;
 
   --color-ivory: #faf9f5;
-  --color-cream: #f4f1e6;
-  --color-cream-dark: #e6e1d0;
+  --color-sand: #f4f1e6;
+  --color-sand-dark: #e6e1d0;
 
   --color-gold: #c9a054;
   --color-gold-light: #e8d0a0;
   --color-gold-dark: #997029;
 
+  --color-terracotta: #b85c37;
+  --color-terracotta-light: #d67a54;
+
   --color-charcoal: #232724;
   --color-charcoal-light: #484e49;
 
-  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-button: "Poppins", system-ui, sans-serif;
 }
@@ -75,6 +78,7 @@
   border: 1px solid rgba(27, 94, 32, 0.06);
   box-shadow: 0 10px 30px -15px rgba(27, 94, 32, 0.08);
   border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-premium:hover {
@@ -108,10 +112,10 @@
     transform: translateY(0px) rotate(0deg) translateX(0px);
   }
   33% {
-    transform: translateY(-10px) rotate(4deg) translateX(5px);
+    transform: translateY(-8px) rotate(3deg) translateX(4px);
   }
   66% {
-    transform: translateY(5px) rotate(-3deg) translateX(-5px);
+    transform: translateY(4px) rotate(-2deg) translateX(-4px);
   }
   100% {
     transform: translateY(0px) rotate(0deg) translateX(0px);

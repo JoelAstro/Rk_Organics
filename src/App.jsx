@@ -5,11 +5,7 @@ import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Home from "./pages/Home";
 import Solutions from "./pages/Solutions";
-import SolutionDetail from "./pages/SolutionDetail";
 import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
-import BlogList from "./pages/BlogList";
-import BlogPost from "./pages/BlogPost";
 import AboutPage from "./pages/AboutPage";
 import "./App.css";
 
@@ -40,11 +36,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/solutions" element={<Solutions />} />
-            <Route path="/solutions/:id" element={<SolutionDetail />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/blogs" element={<BlogList />} />
-            <Route path="/blogs/:id" element={<BlogPost />} />
           </Routes>
         </main>
 
@@ -57,3 +49,4 @@ export default function App() {
     </Router>
   );
 }
+

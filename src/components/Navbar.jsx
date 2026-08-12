@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Leaf, MessageCircle } from "lucide-react";
+import { Menu, X, Leaf, Sparkles } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,11 +23,8 @@ export default function Navbar() {
   const menuItems = [
     { name: "Home", path: "/", type: "route" },
     { name: "About", path: "/about", type: "route" },
-    { name: "Health Solutions", path: "/solutions", type: "route" },
+    { name: "Solutions", path: "/solutions", type: "route" },
     { name: "Products", path: "/products", type: "route" },
-    { name: "Our Process", path: "/#process", type: "hash" },
-    { name: "Blogs", path: "/blogs", type: "route" },
-    { name: "Testimonials", path: "/#testimonials", type: "hash" },
     { name: "Contact", path: "/#contact", type: "hash" },
   ];
 
@@ -53,7 +50,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? "glass-nav-premium py-2" : "bg-transparent py-5"
+        isScrolled ? "glass-nav-premium py-2 shadow-md" : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,11 +58,11 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-11 h-11 rounded-full bg-forest flex items-center justify-center text-gold transition-all duration-500 group-hover:rotate-12 group-hover:scale-105 shadow-md">
-                <Leaf size={18} className="fill-current" />
+              <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center text-gold transition-transform duration-500 group-hover:rotate-12">
+                <Leaf size={16} className="fill-current" />
               </div>
-              <span className="font-serif text-2xl font-bold tracking-wide text-forest-dark group-hover:text-forest transition-colors">
-                RK <span className="text-gold">Organics</span>
+              <span className="font-serif text-2xl font-bold tracking-wide text-forest-dark">
+                RK <span className="text-gold font-serif">Organics</span>
               </span>
             </Link>
           </div>
@@ -77,7 +74,7 @@ export default function Navbar() {
                 {item.type === "route" ? (
                   <Link
                     to={item.path}
-                    className={`px-3 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 font-button ${
+                    className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 font-button ${
                       location.pathname === item.path
                         ? "text-forest font-bold bg-forest/5"
                         : "text-charcoal/80 hover:text-forest hover:bg-forest/5"
@@ -89,7 +86,7 @@ export default function Navbar() {
                   <a
                     href={item.path}
                     onClick={(e) => handleNavClick(item, e)}
-                    className="px-3 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider text-charcoal/80 hover:text-forest hover:bg-forest/5 transition-all duration-300 font-button"
+                    className="px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider text-charcoal/80 hover:text-forest hover:bg-forest/5 transition-all duration-300 font-button"
                   >
                     {item.name}
                   </a>
@@ -98,16 +95,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Consultation CTA Button */}
+          {/* Solution Discovery CTA */}
           <div className="hidden lg:block">
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick({ path: "/#contact", type: "hash" }, e)}
-              className="btn-premium inline-flex items-center justify-center gap-2 px-6 py-3 text-xs uppercase tracking-wider rounded-full text-white bg-forest hover:bg-forest-light hover:scale-105 active:scale-95 shadow-md hover:shadow-lg transition-all duration-300"
+            <Link
+              to="/solutions"
+              className="btn-premium inline-flex items-center justify-center gap-2 px-6 py-3 border border-forest/20 text-xs uppercase tracking-wider rounded-full text-forest hover:bg-forest hover:text-white transition-all duration-300 shadow-sm"
             >
-              <MessageCircle size={14} />
-              Consult Us
-            </a>
+              <Sparkles size={12} className="text-gold" />
+              Find Your Solution
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -117,13 +113,13 @@ export default function Navbar() {
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-xl text-forest hover:text-forest-light hover:bg-forest/5 focus:outline-none transition-colors"
             >
-              {isOpen ? <X size={26} /> : <Menu size={26} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer menu */}
+      {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-screen opacity-100 visible" : "max-h-0 opacity-0 invisible"
@@ -156,13 +152,13 @@ export default function Navbar() {
             </React.Fragment>
           ))}
           <div className="pt-4 pb-1 px-4">
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick({ path: "/#contact", type: "hash" }, e)}
+            <Link
+              to="/solutions"
+              onClick={() => setIsOpen(false)}
               className="block w-full text-center px-6 py-3.5 text-sm font-bold uppercase tracking-widest rounded-full text-white bg-forest hover:bg-forest-light transition-colors shadow-md font-button"
             >
-              Consult Us
-            </a>
+              Find Your Solution
+            </Link>
           </div>
         </div>
       </div>
