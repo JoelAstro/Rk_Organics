@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, HelpCircle, AlertCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Search, X, HelpCircle } from "lucide-react";
 import CategorySelector from "../components/CategorySelector";
 import ProductCard from "../components/ProductCard";
 import ProductDetails from "../components/ProductDetails";
@@ -30,8 +30,8 @@ export default function Solutions() {
   });
 
   return (
-    <div className="pt-32 pb-24 bg-gradient-to-b from-ivory to-cream/20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div className="luxury-bg-layered min-h-screen pt-32 pb-24 text-cream-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
         
         {/* Header Title */}
         <motion.div
@@ -41,14 +41,14 @@ export default function Solutions() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center max-w-3xl mx-auto space-y-4"
         >
-          <span className="text-gold font-bold tracking-widest text-xs uppercase block font-button">
+          <span className="text-copper font-bold tracking-widest text-[10px] uppercase block font-button">
             Guided Discovery
           </span>
-          <h1 className="font-serif text-4xl sm:text-5.5xl font-bold text-forest-dark leading-tight">
+          <h1 className="font-serif text-4.5xl sm:text-6xl font-bold text-champagne leading-tight">
             Find Your Solution
           </h1>
-          <div className="w-16 h-1 bg-gold mx-auto rounded-full" />
-          <p className="text-charcoal-light text-sm max-w-xl mx-auto leading-relaxed">
+          <div className="w-16 h-1 bg-copper mx-auto rounded-full" />
+          <p className="text-taupe text-sm max-w-xl mx-auto leading-relaxed font-sans font-light">
             Select a therapeutic category or type an ingredient name (e.g. 'మిరియాలు', 'Ashwagandha') to locate matching traditional formulations.
           </p>
         </motion.div>
@@ -59,7 +59,7 @@ export default function Solutions() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-xl mx-auto relative z-10"
+          className="max-w-xl mx-auto relative z-20"
         >
           <div className="relative">
             <input
@@ -67,13 +67,13 @@ export default function Solutions() {
               placeholder="Search formulations, concerns, or ingredients..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-forest/10 focus:border-forest rounded-full py-4 pl-12 pr-12 text-charcoal placeholder-charcoal/45 focus:ring-1 focus:ring-forest outline-none transition-all duration-300 shadow-sm text-sm font-button"
+              className="w-full bg-plum-dark/85 border border-white/10 focus:border-copper rounded-full py-4 pl-12 pr-12 text-cream-white placeholder-taupe/40 focus:ring-1 focus:ring-copper outline-none transition-all duration-300 shadow-xl text-sm font-button"
             />
-            <Search className="absolute left-4.5 top-1/2 -translate-y-1/2 text-forest/40 w-5 h-5" />
+            <Search className="absolute left-4.5 top-1/2 -translate-y-1/2 text-copper/55 w-5 h-5" />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-4.5 top-1/2 -translate-y-1/2 text-charcoal/40 hover:text-charcoal transition-colors cursor-pointer"
+                className="absolute right-4.5 top-1/2 -translate-y-1/2 text-champagne/60 hover:text-champagne transition-colors cursor-pointer"
               >
                 <X size={18} />
               </button>
@@ -85,9 +85,9 @@ export default function Solutions() {
         <div>
           {searchQuery ? (
             /* Search Results Grid */
-            <div className="space-y-6">
-              <div className="flex justify-between items-center border-b border-forest/10 pb-2">
-                <span className="text-xs font-semibold text-charcoal-light font-button">
+            <div className="space-y-8">
+              <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                <span className="text-xs font-semibold text-taupe font-button">
                   Found {filteredFormulations.length} formulation{filteredFormulations.length !== 1 ? "s" : ""}
                 </span>
               </div>
@@ -104,17 +104,17 @@ export default function Solutions() {
                 </div>
               ) : (
                 /* Empty state warning */
-                <div className="text-center py-20 bg-white rounded-3xl border border-forest/5 max-w-xl mx-auto space-y-4">
-                  <HelpCircle className="w-12 h-12 text-sage/40 mx-auto animate-pulse" />
-                  <h3 className="font-serif text-2xl font-bold text-forest-dark">
+                <div className="text-center py-20 bg-plum-light/25 rounded-3xl border border-white/5 max-w-xl mx-auto space-y-4">
+                  <HelpCircle className="w-12 h-12 text-rose/30 mx-auto animate-pulse" />
+                  <h3 className="font-serif text-2xl font-bold text-champagne">
                     No Matching Formulation Found
                   </h3>
-                  <p className="text-charcoal-light text-xs max-w-xs mx-auto leading-relaxed">
+                  <p className="text-taupe text-xs max-w-xs mx-auto leading-relaxed font-sans font-light">
                     Try searching with another Telugu ingredient keyword (like 'సొంటి' or 'చందన') or clear the search to browse all categories.
                   </p>
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="px-6 py-3 bg-forest hover:bg-forest-light text-white text-xs font-semibold uppercase tracking-wider rounded-full shadow transition-all font-button cursor-pointer"
+                    className="px-6 py-3 bg-copper hover:bg-copper-light text-cream-white text-xs font-semibold uppercase tracking-widest rounded-full shadow transition-all font-button cursor-pointer"
                   >
                     Browse Categories
                   </button>
@@ -122,7 +122,7 @@ export default function Solutions() {
               )}
             </div>
           ) : (
-            /* 6-Card Category Selector Piece */
+            /* 6-Card Category Selector Centerpiece */
             <CategorySelector />
           )}
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, X, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import ProductDetails from "../components/ProductDetails";
 import { formulations } from "../data/formulationsData";
@@ -24,8 +24,8 @@ export default function Products() {
   });
 
   return (
-    <div className="pt-32 pb-24 bg-gradient-to-b from-ivory to-cream/20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div className="luxury-bg-layered min-h-screen pt-32 pb-24 text-cream-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
         {/* Header Section */}
         <motion.div
@@ -35,14 +35,14 @@ export default function Products() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center max-w-3xl mx-auto space-y-4"
         >
-          <span className="text-gold font-bold tracking-widest text-xs uppercase block font-button">
+          <span className="text-copper font-bold tracking-widest text-[10px] uppercase block font-button">
             Traditional Catalog
           </span>
-          <h1 className="font-serif text-4xl sm:text-5.5xl font-bold text-forest-dark leading-tight">
+          <h1 className="font-serif text-4.5xl sm:text-6xl font-bold text-champagne leading-tight">
             Our Traditional Formulations
           </h1>
-          <div className="w-16 h-1 bg-gold mx-auto rounded-full" />
-          <p className="text-charcoal-light text-sm max-w-xl mx-auto leading-relaxed">
+          <div className="w-16 h-1 bg-copper mx-auto rounded-full" />
+          <p className="text-taupe text-sm max-w-xl mx-auto leading-relaxed font-sans font-light">
             Browse our compiled range of Ayurvedic herbo-mineral mixtures. Detailed specifications, dosages, and preparation histories are pending official confirmation.
           </p>
         </motion.div>
@@ -53,12 +53,12 @@ export default function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="glass-card-premium p-4 md:p-6 bg-white/60"
+          className="glass-card-dark p-6 bg-plum-light/35 border-white/5"
         >
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-            <div className="flex items-center gap-2 text-forest">
+            <div className="flex items-center gap-2 text-copper">
               <Filter size={16} />
-              <span className="text-xs font-bold uppercase tracking-wider font-button">Filter by System:</span>
+              <span className="text-xs font-bold uppercase tracking-widest font-button">Filter by System:</span>
             </div>
 
             <div className="flex flex-wrap gap-2 justify-center sm:justify-end">
@@ -66,10 +66,10 @@ export default function Products() {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 font-button cursor-pointer ${
+                  className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-300 font-button cursor-pointer ${
                     selectedCategory === cat.id
-                      ? "bg-forest text-white shadow-sm"
-                      : "bg-white text-charcoal/80 border border-forest/5 hover:bg-cream"
+                      ? "bg-copper text-cream-white shadow-md scale-102"
+                      : "bg-plum-dark/45 text-taupe border border-white/5 hover:bg-white/5"
                   }`}
                 >
                   {cat.name}
