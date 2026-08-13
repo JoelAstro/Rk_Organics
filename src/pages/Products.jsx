@@ -24,7 +24,7 @@ export default function Products() {
   });
 
   return (
-    <div className="luxury-bg-layered min-h-screen pt-32 pb-24 text-cream-white relative">
+    <div className="bg-natural-light min-h-screen pt-32 pb-24 text-charcoal-green relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
         {/* Header Section */}
@@ -35,14 +35,14 @@ export default function Products() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center max-w-3xl mx-auto space-y-4"
         >
-          <span className="text-copper font-bold tracking-widest text-[10px] uppercase block font-button">
+          <span className="text-terracotta font-bold tracking-widest text-[10px] uppercase block font-button">
             Traditional Catalog
           </span>
-          <h1 className="font-serif text-4.5xl sm:text-6xl font-bold text-champagne leading-tight">
+          <h1 className="font-serif text-4.5xl sm:text-6xl font-bold text-botanical-dark leading-tight">
             Our Traditional Formulations
           </h1>
-          <div className="w-16 h-1 bg-copper mx-auto rounded-full" />
-          <p className="text-taupe text-sm max-w-xl mx-auto leading-relaxed font-sans font-light">
+          <div className="w-16 h-1 bg-botanical mx-auto rounded-full" />
+          <p className="text-charcoal-green/80 text-sm max-w-xl mx-auto leading-relaxed font-sans font-light">
             Browse our compiled range of Ayurvedic herbo-mineral mixtures. Detailed specifications, dosages, and preparation histories are pending official confirmation.
           </p>
         </motion.div>
@@ -53,10 +53,10 @@ export default function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="glass-card-dark p-6 bg-plum-light/35 border-white/5"
+          className="glass-card-dark p-6 bg-white border border-sand-light shadow-sm"
         >
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-            <div className="flex items-center gap-2 text-copper">
+            <div className="flex items-center gap-2 text-botanical">
               <Filter size={16} />
               <span className="text-xs font-bold uppercase tracking-widest font-button">Filter by System:</span>
             </div>
@@ -68,8 +68,8 @@ export default function Products() {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-300 font-button cursor-pointer ${
                     selectedCategory === cat.id
-                      ? "bg-copper text-cream-white shadow-md scale-102"
-                      : "bg-plum-dark/45 text-taupe border border-white/5 hover:bg-white/5"
+                      ? "bg-botanical text-cream shadow-sm"
+                      : "bg-sand-light text-botanical border border-sand-light hover:bg-botanical/5"
                   }`}
                 >
                   {cat.name}
